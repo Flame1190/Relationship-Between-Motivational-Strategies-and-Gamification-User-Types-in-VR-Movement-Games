@@ -3700,7 +3700,19 @@ MonoBehaviour:
         m_CallState: 2
   _whenUnhover:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1086212539}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: StopHandVibration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenSelect:
     m_PersistentCalls:
       m_Calls:
@@ -17903,7 +17915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6b94f7bc105c24ea3746dc4141a7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 0
+  _updateMode: 1
   _updateAfter: {fileID: 0}
   _cameraRigRef: {fileID: 9137116646494755397}
   _processLateUpdates: 0
@@ -18115,7 +18127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 2644266179700597216}
-  _hmd: {fileID: 0}
+  _hmd: {fileID: 52294927254627382}
   _trackingToWorldTransformer: {fileID: 3531172706327441505}
   _disableProactiveEvaluation: 0
 --- !u!1 &3927567418986154479
@@ -19771,6 +19783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5550776017714593757}
+  - component: {fileID: 5550776017714593758}
   m_Layer: 0
   m_Name: OculusInteractionSampleRig
   m_TagString: Untagged
@@ -19795,6 +19808,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5550776017714593758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550776017714593756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3047fe1bec24b424a9d810e1d28aaada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5555418174494722960
 Transform:
   m_ObjectHideFlags: 0
@@ -21136,7 +21161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1865650535078362969}
-  _hmd: {fileID: 0}
+  _hmd: {fileID: 52294927254627382}
   _trackingToWorldTransformer: {fileID: 3531172706327441505}
   _disableProactiveEvaluation: 0
 --- !u!1 &6655573005810091048
