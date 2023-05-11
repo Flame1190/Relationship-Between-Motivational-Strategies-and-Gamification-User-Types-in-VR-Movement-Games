@@ -4,6 +4,7 @@ using UnityEngine;
 using HighlightPlus;
 using Oculus.Interaction;
 using Oculus.Interaction.Input;
+using Oculus.Interaction.HandGrab;
 
 public class FruitController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class FruitController : MonoBehaviour
     AudioSource _audSource;
 
     [SerializeField]
-    GrabInteractable _grabInteractable;
+    HandGrabInteractable _grabInteractable;
 
     [SerializeField]
     AudioClip _treePickSound;
@@ -54,8 +55,8 @@ public class FruitController : MonoBehaviour
         enumeratorPoke.Reset();
         enumeratorPoke.MoveNext();
 
-        GrabInteractor selectedController = (GrabInteractor)enumeratorPoke.Current;
-        Handedness currHand = selectedController.GetComponent<ControllerRef>().Handedness;
+        HandGrabInteractor selectedController = (HandGrabInteractor)enumeratorPoke.Current;
+        Handedness currHand = selectedController.GetComponent<HandRef>().Handedness;
         HapticsManager.Vibrate(1, 1, currHand == Handedness.Left ? HapticsManager.Hand.Left : HapticsManager.Hand.Right);
         if (onTree)
         {
