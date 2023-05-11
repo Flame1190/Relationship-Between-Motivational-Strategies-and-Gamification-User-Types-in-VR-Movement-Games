@@ -4,7 +4,6 @@ using UnityEngine;
 using Oculus.Interaction;
 using UnityEngine.XR;
 using Oculus.Interaction.Input;
-
 public class ButtonController : MonoBehaviour
 {
 
@@ -22,7 +21,7 @@ public class ButtonController : MonoBehaviour
         enumeratorPoke.MoveNext();
 
         PokeInteractor selectedController = (PokeInteractor)enumeratorPoke.Current;
-        Handedness currHand = selectedController.GetComponent<ControllerRef>().Handedness;
+        Handedness currHand = selectedController.GetComponent<HandRef>().Handedness;
 
         if (currHand == Handedness.Left)
         {
@@ -42,7 +41,7 @@ public class ButtonController : MonoBehaviour
         enumeratorPoke.MoveNext();
         
         PokeInteractor selectedController = (PokeInteractor)enumeratorPoke.Current;
-        Handedness currHand = selectedController.GetComponent<ControllerRef>().Handedness;
+        Handedness currHand = selectedController.GetComponent<HandRef>().Handedness;
         print("Current Hand" + currHand.ToString());
         //OVRInput.SetControllerVibration(1, 1, currHand == Handedness.Left ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch);
         //HapticsManager.Vibrate(1, 1, currHand == Handedness.Left ? HapticsManager.Hand.Left : HapticsManager.Hand.Right);
