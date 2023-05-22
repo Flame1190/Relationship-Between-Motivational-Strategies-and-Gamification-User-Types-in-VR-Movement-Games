@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fruit
   - Controller
+  - RightHand
   layers:
   - Default
   - TransparentFX

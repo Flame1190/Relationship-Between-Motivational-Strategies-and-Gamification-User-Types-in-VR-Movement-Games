@@ -33,6 +33,11 @@ public class DisplayObjectHover : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(SmoothOffset(newOffset, waitTime));
     }
+    public void StopRotationAndBob()
+    {
+        _rotateSpeed = 0;
+        _bobSpeed = 0;
+    }
     public IEnumerator SmoothOffset(float newOffset, float waitTime)
     {
         float elapsedTime = 0;
