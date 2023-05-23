@@ -8,7 +8,7 @@ public  class UserInformation : MonoBehaviour
     // User height
     public static float height = 1.8f;
     // Max user reach (radius of a sphere)
-    public static float reach = 0.5f;
+    public static float reach = 0.9f;
 
     static UserInformation _instance;
 
