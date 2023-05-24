@@ -10,6 +10,8 @@ public  class UserInformation : MonoBehaviour
     // Max user reach (radius of a sphere)
     public static float reach = 0.9f;
 
+    public static int UserID;
+
     static UserInformation _instance;
 
     private void Awake()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisruptorController : MonoBehaviour
+public class DisruptorController : ExperienceController
 {
     int _currSelectionIndex = -1;
     [SerializeField]
@@ -110,7 +110,7 @@ public class DisruptorController : MonoBehaviour
 
     void CompletedTask()
     {
-        
+        CurrentScore++;
         print("COMPLETED TASK!");
         LeftComplete = false;
         RightComplete = false;

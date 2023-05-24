@@ -8,6 +8,8 @@ using Oculus.Interaction.HandGrab;
 
 public class FruitController : MonoBehaviour
 {
+
+    public Texture SpeechBubbleTexture;
     HighlightEffect _hEffect;
     AudioSource _audSource;
 
