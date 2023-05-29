@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantController : MonoBehaviour
+public class PlantController : CreatureController
 {
-     static PlantController _instance;
+     public static PlantController _instance;
+    [SerializeField]
+    Animator _anim;
+
+    [SerializeField]
+    ObjectSpawner _objSpawner;
+
+    bool _movingUp = false;
 
     private void Awake()
     {
@@ -17,9 +24,39 @@ public class PlantController : MonoBehaviour
         }
     }
 
-
-    public static void GrowFruit()
+    
+    public void GrowFruit()
     {
-        _instance.GetComponent<ObjectSpawner>().SpawnObject();
+        _anim.SetBool("Down",true);
+        MoveToRandomPosition(3, 0, 1.2f, false);
+
+
     }
+
+    private void FixedUpdate()
+    {
+        if (_partWayThroughMovement >= 0.5f && _movingUp == false)
+        {
+            _movingUp = true;
+            _anim.SetBool("Down",false);
+
+            StartCoroutine(WaitForSprout());
+        }
+        
+    }
+    IEnumerator WaitForSprout()
+    {
+        //print("ANIMATION SPEED:"+_anim.GetCurrentAnimatorStateInfo(0).speed.ToString());
+        while (!_anim.GetCurrentAnimatorStateInfo(0).IsName("PlantIdle"))
+        {
+            yield return new WaitForEndOfFrame();
+
+        }
+        _objSpawner.SpawnObject();
+        print("SPAWNED)");
+        _partWayThroughMovement = 0;
+        _movingUp = false;
+    }
+
+
 }

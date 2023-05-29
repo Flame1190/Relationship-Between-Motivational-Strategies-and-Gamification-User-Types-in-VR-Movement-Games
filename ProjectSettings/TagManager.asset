@@ -8,6 +8,8 @@ TagManager:
   - Controller
   - RightHand
   - Tool
+  - isTNT
+  - Building
   layers:
   - Default
   - TransparentFX
