@@ -12,7 +12,8 @@ public class AlienController : CreatureController
     AudioClip _eatingSound;
 
 
-    
+    [SerializeField]
+    bool _makeMove;
 
     private void Start()
     {
@@ -25,8 +26,17 @@ public class AlienController : CreatureController
         {
             EatFruit();
             Destroy(other.gameObject);
-            SocialiserController._instance.OnScore();
-            StartCoroutine(WaitForIdle());
+            if (_makeMove)
+            {
+                SocialiserController._instance.OnScore();
+                StartCoroutine(WaitForIdle());
+            } else if (AchieverController._instance != null)
+            {
+                AchieverController._instance.OnScore();
+            }
+            
+                
+            
         }
     }
     public void MoveToRandomGroundPosition(float timeToMove)
@@ -36,6 +46,7 @@ public class AlienController : CreatureController
 
     private void Update()
     {
+        if (_makeMove)
         AnimatorController.SetBool("Walking", _movingInProgress);
 
     }
@@ -53,8 +64,11 @@ public class AlienController : CreatureController
     }
     void EatFruit()
     {
-        AnimatorController.SetTrigger("Eat");
-        PlantController._instance.GrowFruit();
+        if (_makeMove)
+        {
+            AnimatorController.SetTrigger("Eat");
+            PlantController._instance.GrowFruit();
+        }
         _audSource.PlayOneShot(_eatingSound);
     }
 }

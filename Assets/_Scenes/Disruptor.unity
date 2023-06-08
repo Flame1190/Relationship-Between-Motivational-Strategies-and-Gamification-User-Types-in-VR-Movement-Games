@@ -897,6 +897,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnedObject: {fileID: 4477064489668804775, guid: 14cb16e0e1200494080cf4b574bc6ade,
     type: 3}
+  SpawnedObjects: []
+  _spawnAroundPlayer: 0
   _raduis: 0.075
 --- !u!114 &124428386
 MonoBehaviour:
@@ -910,6 +912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908f5f618ef6b5349bdbb1ef70777908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movingInProgress: 0
+  _playerTransform: {fileID: 0}
+  _anim: {fileID: 0}
+  _objSpawner: {fileID: 0}
 --- !u!33 &124428387
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2422,8 +2428,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8101b634abe5b174e9777d4c0603344d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movingInProgress: 0
+  _playerTransform: {fileID: 0}
   AnimatorController: {fileID: 0}
   _eatingSound: {fileID: 8300000, guid: 21ddc34a9e2a4184884d0ac0d16e5a52, type: 3}
+  _makeMove: 0
 --- !u!82 &319199397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7470,7 +7479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &994598116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10836,7 +10845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1457616089
 AudioListener:
   m_ObjectHideFlags: 0

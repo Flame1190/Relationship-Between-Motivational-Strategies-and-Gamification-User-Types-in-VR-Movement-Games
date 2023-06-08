@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tags:
-  - NotRIghtHand
+  - NotRightHand
 --- !u!114 &8598281689405252883
 MonoBehaviour:
   m_ObjectHideFlags: 0

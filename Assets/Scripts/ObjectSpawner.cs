@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class ObjectSpawner : MonoBehaviour
 {
     public GameObject SpawnedObject;
-
+    public GameObject[] SpawnedObjects;
 
     public abstract void SpawnObject();
 }
