@@ -18,6 +18,9 @@ public class AchieverController : ExperienceController
     [SerializeField]
     TMP_Text _nextRankText;
 
+    [SerializeField]
+    TMP_Text _highScoreText;
+
     SphereSpawner _sphereSpawn;
 
     int _nextGoalThreshold = 5;
@@ -25,6 +28,9 @@ public class AchieverController : ExperienceController
 
     [SerializeField]
     ScoreGoal[] _scoreGoals;
+
+    [SerializeField]
+    int _highScore;
 
 
     #region Singleton Setup
@@ -52,6 +58,8 @@ public class AchieverController : ExperienceController
             _nextRankText.text = "Next Rank: " + _scoreGoals[_currGoalIndex+1].GoalName + " (" + _scoreGoals[_currGoalIndex + 1].ScoreThreshold + " points)";
         else
             _nextRankText.text = "";
+
+        _highScoreText.text = "High Score: " + _highScore.ToString();
     }
 
     public void OnScore()
@@ -59,22 +67,25 @@ public class AchieverController : ExperienceController
         CurrentScore++;
         _scoreText.text = "Current Score: " + CurrentScore.ToString();
         _sphereSpawn.SpawnObject();
-
+        if (CurrentScore > _highScore)
+        {
+            _highScoreText.text = "High Score: " + CurrentScore.ToString();
+        }
         if (CurrentScore >= _nextGoalThreshold)
         {
-            _currGoalIndex++;
+            
             _currRankText.text = "Current Rank: " + _scoreGoals[_currGoalIndex].GoalName;
             _currRankImage.sprite = _scoreGoals[_currGoalIndex].GoalIcon;
 
             if (_currGoalIndex < _scoreGoals.Length - 1)
             {
                 _nextGoalThreshold = _scoreGoals[_currGoalIndex].ScoreThreshold;
-
+                _currGoalIndex++;
                 _nextRankText.text = "Next Rank: " + _scoreGoals[_currGoalIndex + 1].GoalName + " (" + _scoreGoals[_currGoalIndex + 1].ScoreThreshold + " points)";
             }
             else
             {
-                _nextRankText.text = "Well done! How high can you get your final score?";
+                _nextRankText.text = "Try beat the highscore of " + _highScore.ToString() + "!";
                 _currRankText.color = Color.yellow;
             }
             

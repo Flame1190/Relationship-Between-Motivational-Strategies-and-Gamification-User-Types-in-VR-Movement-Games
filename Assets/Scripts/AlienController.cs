@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Oculus.Interaction;
 
 public class AlienController : CreatureController
 {
@@ -33,6 +34,20 @@ public class AlienController : CreatureController
             } else if (AchieverController._instance != null)
             {
                 AchieverController._instance.OnScore();
+            } else if (PlayerController._instance != null)
+            {
+                OVRHand.Hand currHand;
+                if (other.gameObject.GetComponent<TagSet>().ContainsTag("NotLeftHand"))
+                {
+                    currHand = OVRHand.Hand.HandRight;
+                } else
+                {
+                    currHand = OVRHand.Hand.HandLeft;
+                }
+
+
+
+                PlayerController._instance.OnScore(currHand);
             }
             
                 

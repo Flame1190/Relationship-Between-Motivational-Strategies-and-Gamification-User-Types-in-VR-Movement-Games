@@ -53,13 +53,13 @@ public class ExperienceController : MonoBehaviour
         }
         if (!File.Exists(filePath + fileName))
         {
-            string fileHeader = "User ID" + "," + "Score" + "," + "Experience Type" + Environment.NewLine;
+            string fileHeader = "User ID" + "," + "Score" + "," + "Experience Type" +"," + "User Height" + "," + "User Reach" + Environment.NewLine;
 
             File.WriteAllText(filePath + fileName, fileHeader);
         }
 
         //StreamWriter writer = new StreamWriter(filePath + fileName);
-        File.AppendAllText(filePath + fileName, Environment.NewLine + _userID.ToString() + "," + CurrentScore.ToString() + "," + _experienceType);
+        File.AppendAllText(filePath + fileName, Environment.NewLine + _userID.ToString() + "," + CurrentScore.ToString() + "," + _experienceType + "," + UserInformation.height + "," + UserInformation.reach);
         //writer.WriteLine("User ID,Score");
         //writer.WriteLine(_userID.ToString() + "," + CurrentScore.ToString());
         //writer.Flush();

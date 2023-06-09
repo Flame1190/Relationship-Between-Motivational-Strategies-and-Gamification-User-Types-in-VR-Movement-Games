@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 31065059380787430, guid: 1fc609294ce2bc7469b7c779d1a59cf6,
         type: 3}
       propertyPath: m_Name
-      value: EnergySphereLeft
+      value: EnergySphereLeft Variant
       objectReference: {fileID: 0}
     - target: {fileID: 31065059380787452, guid: 1fc609294ce2bc7469b7c779d1a59cf6,
         type: 3}
