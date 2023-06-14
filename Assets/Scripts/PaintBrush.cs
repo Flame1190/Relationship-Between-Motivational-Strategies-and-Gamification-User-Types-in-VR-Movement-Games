@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Oculus.Interaction;
 public class PaintBrush : MonoBehaviour
 {
 
@@ -11,14 +11,15 @@ public class PaintBrush : MonoBehaviour
 
     float _framesPerUpdate = 5;
 
-    
+    [SerializeField]
+    RayInteractor _rayInteractor;
 
     List<LineRenderer> _lineRenderers = new List<LineRenderer>();
 
     int _frameCounter = 0;
 
-    [SerializeField]
-    Material _lineMaterial;
+    
+    public Material _lineMaterial;
     [SerializeField]
     float _lineWidth = 0.07f;
     bool _isPainting = false;
@@ -27,12 +28,14 @@ public class PaintBrush : MonoBehaviour
     private void Update()
     {
         _frameCounter++;
-        if (!_isPainting && OVRInput.GetDown(_paintButton))
+        if (!_isPainting && OVRInput.GetDown(_paintButton) && _rayInteractor.State != InteractorState.Hover && _rayInteractor.State != InteractorState.Select)
         {
             _isPainting = true;
             GameObject currGameObject = new GameObject("Paint Line");
             _currLineRenderer = currGameObject.AddComponent<LineRenderer>();
+            FreeSpiritController._instance.PreviousLines.Add(_currLineRenderer.gameObject);
             _currLineRenderer.material = _lineMaterial;
+            _currLineRenderer.material = _currLineRenderer.material;
             _currLineRenderer.widthMultiplier = _lineWidth;
             _currLineRenderer.SetPosition(0, transform.position);
             _currLineRenderer.positionCount = 1;

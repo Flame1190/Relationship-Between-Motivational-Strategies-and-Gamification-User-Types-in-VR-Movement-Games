@@ -99,10 +99,14 @@ namespace Oculus.Interaction
             {
                 return;
             }
-
+            // CUSTOM CODE:
+            bool shouldDraw = true;
             switch (_rayInteractor.State)
             {
                 case InteractorState.Normal:
+
+                    //CUSTOM CODE:
+                    shouldDraw = false;
                     DebugGizmos.Color = _normalColor;
                     break;
                 case InteractorState.Hover:
@@ -116,6 +120,8 @@ namespace Oculus.Interaction
             }
 
             DebugGizmos.LineWidth = _rayWidth;
+            //CUSTOM CODE:
+            if (shouldDraw)
             DebugGizmos.DrawLine(_rayInteractor.Origin, _rayInteractor.End);
         }
 
