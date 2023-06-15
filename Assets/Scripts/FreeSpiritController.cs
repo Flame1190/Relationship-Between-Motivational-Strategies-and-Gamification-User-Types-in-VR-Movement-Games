@@ -22,6 +22,11 @@ public class FreeSpiritController : ExperienceController
     #endregion
 
     [SerializeField]
+    List<GameObject> _templates;
+
+    int _currTemplateIndex;
+
+    [SerializeField]
     Image _leftHandImage;
 
     [SerializeField]
@@ -35,12 +40,29 @@ public class FreeSpiritController : ExperienceController
     [SerializeField]
     RayInteractable _rayInteractable;
 
+    [SerializeField]
+    PointableCanvasModule _VREvents;
+
+
+
     public List<GameObject> PreviousLines = new List<GameObject>();
 
     private void Start()
     {
         OnColourChange("Left", Color.white);
         OnColourChange("Right", Color.white);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _VREvents.enabled = false;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _VREvents.enabled = true;
+        }
     }
     public void OnColourChange(string handString, Color matColour)
     {
@@ -70,5 +92,26 @@ public class FreeSpiritController : ExperienceController
         PreviousLines.RemoveAt(PreviousLines.Count - 1);
         Destroy(lastElement);
         
+    }
+
+    public void NextTemplate()
+    {
+        if (_currTemplateIndex < _templates.Count-1)
+        {
+            ClearAllLines();
+            _templates[_currTemplateIndex].SetActive(false);
+            _currTemplateIndex++;
+            _templates[_currTemplateIndex].SetActive(true);
+        }
+    }
+
+
+    public void ClearAllLines()
+    {
+        for (int i = 0; i < PreviousLines.Count; i++)
+        {
+            Destroy(PreviousLines[i]);
+        }
+        PreviousLines.Clear();
     }
 }

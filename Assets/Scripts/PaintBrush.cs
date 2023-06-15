@@ -22,7 +22,7 @@ public class PaintBrush : MonoBehaviour
     public Material _lineMaterial;
     [SerializeField]
     float _lineWidth = 0.07f;
-    bool _isPainting = false;
+    public bool _isPainting = false;
 
     LineRenderer _currLineRenderer;
     private void Update()

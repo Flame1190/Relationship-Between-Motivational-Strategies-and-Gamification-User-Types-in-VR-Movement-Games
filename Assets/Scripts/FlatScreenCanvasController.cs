@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class FlatScreenCanvasController : MonoBehaviour
 {
     string _alienName = "Unidentified Alien";
@@ -17,6 +17,11 @@ public class FlatScreenCanvasController : MonoBehaviour
     public void ToggleVisibility(GameObject toToggle)
     {
         toToggle.SetActive(!toToggle.activeSelf);
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
 }

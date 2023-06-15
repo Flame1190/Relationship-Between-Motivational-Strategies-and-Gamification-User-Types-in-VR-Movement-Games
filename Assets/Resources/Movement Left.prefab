@@ -70,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c4c5438bf5fe174586958b716d9c599, type: 2}
+  - {fileID: 2100000, guid: 74da6303e770cd94fb6e6ab0677d9c75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
       Value: 0
     MaxX:
       Constrain: 1
-      Value: 0.5
+      Value: 0.25
     MinY:
       Constrain: 1
       Value: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   _handType: Left
   _goalScore: 3
   _axis: {x: 1, y: 0, z: 0}
-  _goalDistance: 0.45
+  _goalDistance: 0.24
 --- !u!1 &4954332211274916724
 GameObject:
   m_ObjectHideFlags: 0
