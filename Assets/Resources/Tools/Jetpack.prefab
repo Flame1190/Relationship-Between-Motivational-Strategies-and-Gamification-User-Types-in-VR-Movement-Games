@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40dc65d2d8d5d94eba4a0af12a9f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeechBubbleTexture: {fileID: 2800000, guid: 215acc16cfceffc43a3724203071c307, type: 3}
+  SpeechBubbleTexture: {fileID: 2800000, guid: 8572cc8e711088a4f9177c85e6c5bd40, type: 3}
   _grabInteractable: {fileID: 1628569483892608938}
   _treePickSound: {fileID: 8300000, guid: 6ad851833fd5df24c84fbadccdab63d2, type: 3}
   _pickUpSound: {fileID: 8300000, guid: 452cab5cd4cc31a4bbda065fe1729e0d, type: 3}
