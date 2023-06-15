@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Text;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -21,11 +22,11 @@ public class ExperienceController : MonoBehaviour
     private void Start()
     {
         SetUserID();
-
     }
 
     public void SetUserID()
     {
+
         _userID = UserInformation.UserID;
     }
 
@@ -57,9 +58,10 @@ public class ExperienceController : MonoBehaviour
 
             File.WriteAllText(filePath + fileName, fileHeader);
         }
+        print("user id on close:" + UserInformation.UserID.ToString());
 
         //StreamWriter writer = new StreamWriter(filePath + fileName);
-        File.AppendAllText(filePath + fileName, Environment.NewLine + _userID.ToString() + "," + CurrentScore.ToString() + "," + _experienceType + "," + UserInformation.height + "," + UserInformation.reach);
+        File.AppendAllText(filePath + fileName, Environment.NewLine + UserInformation.UserID.ToString() + "," + CurrentScore.ToString() + "," + _experienceType + "," + UserInformation.height + "," + UserInformation.reach);
         //writer.WriteLine("User ID,Score");
         //writer.WriteLine(_userID.ToString() + "," + CurrentScore.ToString());
         //writer.Flush();
@@ -70,11 +72,13 @@ public class ExperienceController : MonoBehaviour
 #endif
     }
 
-    private void OnApplicationQuit()
+   
+    void OnDestroy()
     {
+        print("Scene Unloaded");
+
         FinishExperience();
     }
-
     private string[] getPath()
     {
 #if UNITY_EDITOR

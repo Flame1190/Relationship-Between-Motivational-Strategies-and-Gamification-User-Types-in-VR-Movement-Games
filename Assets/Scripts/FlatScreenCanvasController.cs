@@ -8,7 +8,16 @@ public class FlatScreenCanvasController : MonoBehaviour
 {
     string _alienName = "Unidentified Alien";
     [SerializeField]
-    TMP_Text _alienNameText; 
+    TMP_Text _alienNameText;
+
+    [SerializeField]
+    TMP_InputField _userIDInput;
+
+    private void Start()
+    {
+        if (_userIDInput != null)
+        _userIDInput.text = UserInformation.UserID.ToString(); 
+    }
     public void UpdateAlienName(string name)
     {
         _alienName = name;
@@ -22,6 +31,12 @@ public class FlatScreenCanvasController : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ChangeUSERID (string userID)
+    {
+        UserInformation.UserID = int.Parse(userID);
+        print("UserID" + int.Parse(userID).ToString());
     }
 
 }

@@ -7,11 +7,7 @@ public class PaintTemplateSphere : MonoBehaviour
     bool _completed = false;
     private void OnTriggerStay(Collider other)
     {
-        print(other.tag);
-        if (other.transform.tag == "Controller")
-        {
-            print("CONTROLLER");
-        }
+      
         if (_completed == false && other.tag == "Controller" && ((other.gameObject.GetComponent<ObjectReference>().SecondaryReference == "Right" && other.gameObject.GetComponent<ObjectReference>().ThirdReference.GetComponent<PaintBrush>()._isPainting) || (other.gameObject.GetComponent<ObjectReference>().SecondaryReference == "Left" && other.gameObject.GetComponent<ObjectReference>().ThirdReference.GetComponent<PaintBrush>()._isPainting)))
         {
             _completed = true;
