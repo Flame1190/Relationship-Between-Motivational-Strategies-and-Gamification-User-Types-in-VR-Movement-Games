@@ -51,7 +51,7 @@ public class AchieverController : ExperienceController
     private void Start()
     {
         _sphereSpawn = GetComponent<SphereSpawner>();
-        _nextGoalThreshold = _scoreGoals[_currGoalIndex].ScoreThreshold;
+        _nextGoalThreshold = _scoreGoals[_currGoalIndex+1].ScoreThreshold;
         _currRankText.text = "Current Rank: " + _scoreGoals[_currGoalIndex].GoalName;
         _currRankImage.sprite = _scoreGoals[_currGoalIndex].GoalIcon;
         if (_currGoalIndex < _scoreGoals.Length - 1)
@@ -74,13 +74,13 @@ public class AchieverController : ExperienceController
         if (CurrentScore >= _nextGoalThreshold)
         {
             
-            _currRankText.text = "Current Rank: " + _scoreGoals[_currGoalIndex].GoalName;
-            _currRankImage.sprite = _scoreGoals[_currGoalIndex].GoalIcon;
+            
 
             if (_currGoalIndex < _scoreGoals.Length - 1)
             {
-                _nextGoalThreshold = _scoreGoals[_currGoalIndex].ScoreThreshold;
                 _currGoalIndex++;
+                _nextGoalThreshold = _scoreGoals[_currGoalIndex+1].ScoreThreshold;
+
                 _nextRankText.text = "Next Rank: " + _scoreGoals[_currGoalIndex + 1].GoalName + " (" + _scoreGoals[_currGoalIndex + 1].ScoreThreshold + " points)";
             }
             else
@@ -88,7 +88,8 @@ public class AchieverController : ExperienceController
                 _nextRankText.text = "Try beat the highscore of " + _highScore.ToString() + "!";
                 _currRankText.color = Color.yellow;
             }
-            
+            _currRankText.text = "Current Rank: " + _scoreGoals[_currGoalIndex].GoalName;
+            _currRankImage.sprite = _scoreGoals[_currGoalIndex].GoalIcon;
         }
     }
 }
