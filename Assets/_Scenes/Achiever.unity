@@ -2548,7 +2548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'High Score: 103'
+  m_text: 'High Score: 303'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4723,15 +4723,15 @@ MonoBehaviour:
     ScoreThreshold: 35
     GoalIcon: {fileID: 21300000, guid: c7663b0a4d4319946bf52afaa6f90c1d, type: 3}
   - GoalName: Celestial Harbinger
-    ScoreThreshold: 50
+    ScoreThreshold: 55
     GoalIcon: {fileID: 21300000, guid: 8f0246250b4eb444fbf3b959624a3bfe, type: 3}
   - GoalName: Cosmic Alchemist
-    ScoreThreshold: 65
+    ScoreThreshold: 100
     GoalIcon: {fileID: 21300000, guid: 329b12a3551ef7448b373c3cf907cfb5, type: 3}
   - GoalName: Saviour of Humanity
-    ScoreThreshold: 80
+    ScoreThreshold: 200
     GoalIcon: {fileID: 21300000, guid: 2a0d11b5b2a9e9d4183e4298682130b6, type: 3}
-  _highScore: 103
+  _highScore: 303
 --- !u!114 &884194916
 MonoBehaviour:
   m_ObjectHideFlags: 0
