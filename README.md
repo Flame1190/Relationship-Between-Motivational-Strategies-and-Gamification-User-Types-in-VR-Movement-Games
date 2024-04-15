@@ -1,5 +1,7 @@
 # Unity project for "Relationship Between Motivational Strategies and Gamification User Types in VR Movement Games"
 
+![alt text](https://github.com/Flame1190/Relationship-Between-Motivational-Strategies-and-Gamification-User-Types-in-VR-Movement-Games/blob/main/CompSci710-Teaser-Cropped.png?raw=true)
+
 This is the official unity project used for the project "Relationship Between Motivational Strategies and Gamification User Types in VR Movement Games". View the paper here: https://ieeexplore.ieee.org/document/10344250 
 
 # How it works
